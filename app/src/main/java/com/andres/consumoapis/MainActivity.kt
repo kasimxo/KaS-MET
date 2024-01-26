@@ -71,35 +71,31 @@ class MainActivity : AppCompatActivity() {
             Log.i("consulta", query)
             if (myResponse.isSuccessful) {
 
-
-
                 val response: METDataResponse? = myResponse.body()
-
-
 
                 if (response != null && response.ids != null) {
 
+                    //Aquí tenemos que insertar un método que devuleva lista de listas
                     var ids = response.ids
                     if (ids.size>10) {
 
                         ids = ids.subList(0,10)
-
                     }
 
                     CoroutineScope(Dispatchers.IO).launch {
                         var objetos : List<METItemResponse> = ArrayList<METItemResponse>()
                         for (id in ids) {
-                            objetos += retrofit.create(ApiService::class.java).getObjectData(id)
+                            //Esta comprobación la hacemos porque hay casos donde devuelve una id que luego no existe
+                            val obj: Response<METItemResponse> =
+                                retrofit.create(ApiService::class.java).getObjectData(id)
+                            val objR : METItemResponse? = obj.body()
+                            if(objR != null) {objetos += objR}
                         }
 
-
-
                             runOnUiThread {
-
                                 adapter.updateList(objetos)
                                 binding.responseTotal.text = "Results: ${response.total}"
                                 binding.progressBar.isVisible = false
-
                             }
                         }
                 } else {
@@ -109,7 +105,6 @@ class MainActivity : AppCompatActivity() {
                         binding.responseTotal.text = "No results found"
 
                     }
-
                 }
             } else {
                 Log.i("Consulta", "No funciona :(")
@@ -117,14 +112,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
     private fun getRetrofit(): Retrofit {
         return Retrofit
             .Builder()
             .baseUrl("https://collectionapi.metmuseum.org/public/collection/v1/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-
-
     }
 }

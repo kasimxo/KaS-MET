@@ -27,17 +27,26 @@ class METDataViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             //Primero intentamos usar la imagen pequeña para ir lo mas rápido posible
             //Reescala las imagenes y las centra sin hacer strech
             Picasso.get().load(objeto.imageSmall).fit().centerCrop().into(binding.ivPieza)
+            objeto.mainImage = objeto.imageSmall
         } else if (objeto.imageBig.isNotEmpty()) {
             //Si el objeto no tiene imagen pequeña, usamos la grande
-            Picasso.get().load(objeto.imageSmall).fit().centerCrop().into(binding.ivPieza)
+            Picasso.get().load(objeto.imageBig).fit().centerCrop().into(binding.ivPieza)
+            objeto.mainImage = objeto.imageBig
         }
 
         if (objeto.imagenesAlternativas.size<1){
             binding.btnLeft.isVisible = false
             binding.btnRight.isVisible = false
+        } else {
+            binding.btnLeft.setOnClickListener(cambiarImagen(-1))
+            binding.btnRight.setOnClickListener(cambiarImagen(+1))
         }
 
 
+
+    }
+
+    fun cambiarImagen(Valor: Int) {
 
     }
 

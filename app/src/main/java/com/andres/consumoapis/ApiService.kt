@@ -14,7 +14,7 @@ interface ApiService {
     suspend fun getQuery(@Query("q") consulta:String) : Response<METDataResponse>
 
     @GET("objects/{id}")
-    suspend fun getObjectData(@Path("id") id:String) : METItemResponse
+    suspend fun getObjectData(@Path("id") id:String) : Response<METItemResponse>
 
 /*
     @GET("v1/")

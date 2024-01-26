@@ -24,7 +24,10 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/img_not_found"
+
+            />
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -46,30 +49,31 @@
                 tools:text="Pieza"
                 android:paddingVertical="10dp"/>
         </FrameLayout>
-        <Button
+        <ImageButton
             android:id="@+id/btnLeft"
-            android:layout_width="55dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@id/layoutDescripcion"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="20dp"
-            android:textSize="20sp"
-            android:text=""
-            android:textColor="@color/black"
-            android:backgroundTint="@color/gris"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/btn_lft"
+            android:backgroundTint="@color/casiNegro"
+            android:background="@drawable/roundcorners"
             />
-        <Button
+        <ImageButton
             android:id="@+id/btnRight"
-            android:layout_width="55dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@id/layoutDescripcion"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginRight="20dp"
-            android:textSize="20sp"
-            android:text=""
-            android:textColor="@color/black"
-            android:backgroundTint="@color/gris"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/btn_right"
+            android:background="@drawable/roundcorners"
+            android:backgroundTint="@color/casiNegro"
             />
+
 
         <LinearLayout
             android:layout_width="match_parent"

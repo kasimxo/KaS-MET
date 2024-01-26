@@ -8,6 +8,8 @@ data class METDataResponse (
 )
 
 data class METItemResponse(
+    var mainImage: String,
+    var currIndexImage: Int,
     @SerializedName("id") val id: String,
     @SerializedName("primaryImage") val imageBig: String,
     @SerializedName("primaryImageSmall") val imageSmall: String,
@@ -16,8 +18,6 @@ data class METItemResponse(
     @SerializedName("artistDisplayName") val autor: String,
     @SerializedName("objectDate") val fecha: String,
     @SerializedName("additionalImages") val imagenesAlternativas: List<String>
-
-
 )
 
 
