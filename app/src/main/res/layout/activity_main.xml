@@ -25,7 +25,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:id="@+id/responseTotal"
         android:textSize="15sp"
-        android:textColor="@color/white"
+        android:textColor="@color/casiNegro"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         />

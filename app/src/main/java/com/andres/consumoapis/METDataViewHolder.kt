@@ -38,15 +38,31 @@ class METDataViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             binding.btnLeft.isVisible = false
             binding.btnRight.isVisible = false
         } else {
-            binding.btnLeft.setOnClickListener(cambiarImagen(-1))
-            binding.btnRight.setOnClickListener(cambiarImagen(+1))
+            binding.btnLeft.setOnClickListener {cambiarImagen(-1, objeto)}
+            binding.btnRight.setOnClickListener {cambiarImagen(+1, objeto)}
         }
 
 
 
     }
 
-    fun cambiarImagen(Valor: Int) {
+    fun cambiarImagen(Valor: Int, objeto: METItemResponse) {
+        objeto.currIndexImage += Valor
+
+        if(objeto.currIndexImage >= objeto.imagenesAlternativas.size) {
+            objeto.currIndexImage -= objeto.imagenesAlternativas.size
+        } else if(objeto.currIndexImage < 0) {
+            objeto.currIndexImage += objeto.imagenesAlternativas.size
+        }
+
+
+        if(objeto.currIndexImage == 0) {
+            Picasso.get().load(objeto.mainImage).fit().centerCrop().into(binding.ivPieza)
+        } else if(objeto.currIndexImage>0){
+            Picasso.get().load(objeto.imagenesAlternativas.get(objeto.currIndexImage-1)).fit().centerCrop().into(binding.ivPieza)
+        } else if(objeto.currIndexImage<0){
+            Picasso.get().load(objeto.imagenesAlternativas.get(objeto.currIndexImage-1)).fit().centerCrop().into(binding.ivPieza)
+        }
 
     }
 

@@ -25,7 +25,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:src="@drawable/img_not_found"
+            android:src="@mipmap/img_not_found_foreground"
 
             />
         <FrameLayout
@@ -44,8 +44,8 @@
                 android:gravity="center"
                 android:background="@drawable/gradienttopbottom"
                 android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textFontWeight="700"
+                android:textSize="30sp"
+                android:textStyle="bold"
                 tools:text="Pieza"
                 android:paddingVertical="10dp"/>
         </FrameLayout>
@@ -85,14 +85,16 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:padding="10dp"
+            android:paddingTop="25dp"
+            android:paddingHorizontal="10dp"
+            android:paddingBottom="10dp"
             >
             <TextView
                 android:id="@+id/tvDescripcionTitulo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Description:"
-                android:textFontWeight="500"
+                android:textStyle="bold"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="20sp"/>

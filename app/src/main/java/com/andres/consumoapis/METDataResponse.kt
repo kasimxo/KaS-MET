@@ -9,7 +9,7 @@ data class METDataResponse (
 
 data class METItemResponse(
     var mainImage: String,
-    var currIndexImage: Int,
+    var currIndexImage: Int = 0,
     @SerializedName("id") val id: String,
     @SerializedName("primaryImage") val imageBig: String,
     @SerializedName("primaryImageSmall") val imageSmall: String,
