@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSnapHelper
 import com.andres.consumoapis.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -35,6 +36,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //Esto es únicamente para que el recyclerview tenga un snap a la pantalla
+        val snap = LinearSnapHelper()
+        snap.attachToRecyclerView(binding.rvItems)
 
 
 
@@ -73,7 +77,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-                if (response != null) {
+                if (response != null && response.ids != null) {
 
                     var ids = response.ids
                     if (ids.size>10) {
@@ -82,22 +86,30 @@ class MainActivity : AppCompatActivity() {
 
                     }
 
-                CoroutineScope(Dispatchers.IO).launch {
-                    var objetos : List<METItemResponse> = ArrayList<METItemResponse>()
-                    for (id in ids) {
-                        objetos += retrofit.create(ApiService::class.java).getObjectData(id)
-                    }
-
-
-
-                        runOnUiThread {
-
-                            adapter.updateList(objetos)
-                            binding.responseTotal.text = "Results: ${response.total}"
-                            binding.progressBar.isVisible = false
-
+                    CoroutineScope(Dispatchers.IO).launch {
+                        var objetos : List<METItemResponse> = ArrayList<METItemResponse>()
+                        for (id in ids) {
+                            objetos += retrofit.create(ApiService::class.java).getObjectData(id)
                         }
+
+
+
+                            runOnUiThread {
+
+                                adapter.updateList(objetos)
+                                binding.responseTotal.text = "Results: ${response.total}"
+                                binding.progressBar.isVisible = false
+
+                            }
+                        }
+                } else {
+                    runOnUiThread {
+
+                        binding.progressBar.isVisible = false
+                        binding.responseTotal.text = "No results found"
+
                     }
+
                 }
             } else {
                 Log.i("Consulta", "No funciona :(")

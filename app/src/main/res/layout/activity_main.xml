@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:id="@+id/background"
+    android:background="@color/white">
 
     <androidx.appcompat.widget.SearchView
         android:layout_width="match_parent"
@@ -22,10 +24,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:id="@+id/responseTotal"
-        android:textSize="25sp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/textLogo"
+        android:src="@mipmap/met_logo_foreground"
+        android:id="@+id/logo"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/logo"
+        app:layout_constraintBottom_toBottomOf="@id/logo"
+        android:textColor="@color/casiNegro"
+        android:fontFamily="serif"
+        android:textSize="35sp"
+        android:id="@+id/textLogo"
+        android:text="The Metropolitan\nMuseum of Art"/>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="0dp"
         android:layout_height="0dp"

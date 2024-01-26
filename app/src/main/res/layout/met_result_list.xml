@@ -17,6 +17,7 @@
         android:layout_height="match_parent">
         <ImageView
             android:id="@+id/ivPieza"
+            android:background="@color/negroTransparente"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
@@ -41,6 +42,7 @@
                 android:background="@drawable/gradienttopbottom"
                 android:textColor="@color/white"
                 android:textSize="20sp"
+                android:textFontWeight="700"
                 tools:text="Pieza"
                 android:paddingVertical="10dp"/>
         </FrameLayout>
@@ -71,7 +73,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
             android:id="@+id/layoutDescripcion"
             android:orientation="vertical"
             android:layout_gravity="bottom"
@@ -79,24 +81,26 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:padding="10dp"
             >
             <TextView
                 android:id="@+id/tvDescripcionTitulo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="Description:"
+                android:textFontWeight="500"
                 android:gravity="center"
                 android:textColor="@color/white"
-                android:textSize="20sp"
-                tools:text="Descripción" />
+                android:textSize="20sp"/>
             <TextView
                 android:id="@+id/tvDescripcion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 tools:text="Descripción"
                 android:paddingHorizontal="15dp"
-                android:paddingVertical="15dp"/>
+                android:paddingTop="5dp"/>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

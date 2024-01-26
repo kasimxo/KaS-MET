@@ -17,9 +17,9 @@ class METDataViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var medio = objeto.medio
         var fecha = objeto.fecha
         var autor = objeto.autor
-        if(medio.isBlank() || medio.isEmpty()) {medio = "Desconocido"}
-        if(fecha.isBlank() || fecha.isEmpty()) {fecha = "Desconocido"}
-        if(autor.isBlank() || autor.isEmpty()) {autor = "Desconocido"}
+        if(medio.isBlank() || medio.isEmpty()) {medio = "Unknown"}
+        if(fecha.isBlank() || fecha.isEmpty()) {fecha = "Unknown"}
+        if(autor.isBlank() || autor.isEmpty()) {autor = "Unknown"}
         var descripcion : String = "Medium: " + medio + "\nDate: " + fecha + "\nAuthor: " + autor
         binding.tvDescripcion.text = descripcion
 

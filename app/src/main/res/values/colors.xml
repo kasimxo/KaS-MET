@@ -3,4 +3,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gris">#686868</color>
+    <color name="negroTransparente">#8B000000</color>
+    <color name="casiNegro">#191919</color>
 </resources>
