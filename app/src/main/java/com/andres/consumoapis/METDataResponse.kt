@@ -20,4 +20,9 @@ data class METItemResponse(
     @SerializedName("additionalImages") val imagenesAlternativas: List<String>
 )
 
+//Esta clase almacena las IDS
+data class IDsCollection(
+    var Ids: List<String>
+)
+
 

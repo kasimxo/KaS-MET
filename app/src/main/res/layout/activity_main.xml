@@ -56,8 +56,36 @@
         android:id="@+id/rvItems"
         app:layout_constraintTop_toBottomOf="@id/responseTotal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnLeftMain"
         app:layout_constraintEnd_toEndOf="parent"/>
+    <ImageButton
+        android:id="@+id/btnLeftMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/btn_lft"
+        android:backgroundTint="@color/casiNegro"
+        android:background="@drawable/roundcorners"
+        android:visibility="invisible"
+        />
+    <ImageButton
+        android:id="@+id/btnRightMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/btn_right"
+        android:background="@drawable/roundcorners"
+        android:backgroundTint="@color/casiNegro"
+        android:visibility="invisible"
+        />
     <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
