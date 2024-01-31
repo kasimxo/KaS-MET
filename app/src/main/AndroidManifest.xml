@@ -13,12 +13,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ConsumoApis"
         tools:targetApi="31">
+        <!--
+        Explicación:
+        windowSoftInputMode="asjustNothing"
+        Esto se hace para evitar que al abrir el teclado mueva cosas
+        -->
         <activity
             android:name=".MainActivity"
+            android:windowSoftInputMode="adjustNothing"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -2,6 +2,7 @@ package com.andres.consumoapis
 
 import android.util.Log
 import android.view.View
+import androidx.annotation.DrawableRes
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.andres.consumoapis.databinding.MetResultListBinding
@@ -32,6 +33,11 @@ class METDataViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             //Si el objeto no tiene imagen pequeña, usamos la grande
             Picasso.get().load(objeto.imageBig).fit().centerCrop().into(binding.ivPieza)
             objeto.mainImage = objeto.imageBig
+        } else {
+            //Si el objeto no tiene ninguna imagen, colocamos el icono de error
+            //Esto se hace para evitar que al actualizar una lista, siga mostrando la
+            //imagen de un objeto anterior
+            binding.ivPieza.setImageResource(R.mipmap.img_not_found_foreground)
         }
 
         if (objeto.imagenesAlternativas.size<1){

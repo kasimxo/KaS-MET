@@ -47,9 +47,6 @@ class MainActivity : AppCompatActivity() {
         val snap = LinearSnapHelper()
         snap.attachToRecyclerView(binding.rvItems)
 
-
-
-
         retrofit = getRetrofit()
         initUI()
     }
@@ -58,7 +55,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun moveIndex(valor: Int){
         index += valor
-
         if(index<0){
             //Vamos a la última página
             index = resultados.size-1
@@ -66,7 +62,6 @@ class MainActivity : AppCompatActivity() {
             //Reset a la primera
             index = 0
         }
-
         cargarItems(numeroTotal)
     }
 
@@ -77,7 +72,6 @@ class MainActivity : AppCompatActivity() {
                 searchByName(query.orEmpty())
                 return false
             }
-
             override fun onQueryTextChange(newText: String?) = false
         })
         adapter = METAdapter ()
@@ -91,7 +85,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun searchByName(query: String) {
 
+        //Reseteamos las variables
         resultados = mutableListOf<IDsCollection>()
+        index = 0
+        numeroTotal = 0
 
         binding.progressBar.isVisible = true
         CoroutineScope(Dispatchers.IO).launch {
@@ -110,18 +107,12 @@ class MainActivity : AppCompatActivity() {
                     numeroTotal = ids.size
                     var ind = 0
 
-
-
                     while (ind <= tot-10) {
                         var partlist : IDsCollection = IDsCollection(ids.subList(ind, ind+10))
-
                         resultados += partlist
                         ind += 10
                     }
-
                     cargarItems(tot)
-
-
 
                 } else {
                     runOnUiThread {
@@ -160,7 +151,6 @@ class MainActivity : AppCompatActivity() {
                     binding.btnRightMain.isVisible = true
                     binding.btnLeftMain.isVisible = true
                 }
-
             }
         }
     }
