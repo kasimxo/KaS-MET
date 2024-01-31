@@ -28,8 +28,6 @@ class MainActivity : AppCompatActivity() {
     private var index: Int = 0
     private var numeroTotal: Int = 0
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
 
         //Esto siempre la primera
